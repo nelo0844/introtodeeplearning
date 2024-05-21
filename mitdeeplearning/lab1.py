@@ -16,6 +16,12 @@ def load_training_data():
     songs = extract_song_snippet(text)
     return songs
 
+def load_training_data_poetry():
+    with open(os.path.join(cwd, "data", "irish.abc"), "r") as f:
+        text = f.read()
+    songs = extract_song_snippet(text)
+    return songs
+
 def extract_song_snippet(text):
     pattern = '(^|\n\n)(.*?)\n\n'
     search_results = re.findall(pattern, text, overlapped=True, flags=re.DOTALL)
